@@ -1,3 +1,4 @@
+import sys
 def largefilesplitonkw(filename,splitstring="DROP TABLE IF EXISTS `"):
     from pathlib import Path
     import os
@@ -25,3 +26,6 @@ def largefilesplitonkw(filename,splitstring="DROP TABLE IF EXISTS `"):
                     else:
                         out_file.write(line + '\n') #must add back in newline because we stripped it out earlier
                 out_n += 1 #increment output file name integer
+
+if __name__ == '__main__':
+    largefilesplitonkw(sys.argv[1])
